@@ -1,7 +1,5 @@
 package elite.project;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import java.util.HashMap;
 
 import javafx.application.Application;
@@ -28,8 +26,6 @@ public class App extends Application {
     private String inputName;
     private StackPane selectedCharacterPane;
     private Stage primaryStage;
-
-
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -88,7 +84,8 @@ public class App extends Application {
 
         // inputfield untuk nama
         TextField nameField = new TextField();
-        nameField.setStyle("-fx-background-color: black; -fx-background-radius: 12px; -fx-text-fill: white; -fx-background-insets: 0 0 -12 0; -fx-alignment: center-left; -fx-font-family: 'Poppins'; -fx-font-size: 18px; -fx-font-weight: 600;");
+        nameField.setStyle(
+                "-fx-background-color: black; -fx-background-radius: 12px; -fx-text-fill: white; -fx-background-insets: 0 0 -12 0; -fx-alignment: center-left; -fx-font-family: 'Poppins'; -fx-font-size: 18px; -fx-font-weight: 600;");
         nameField.setAlignment(Pos.CENTER_LEFT);
         nameField.setPadding(new Insets(12, 0, 0, 24));
         nameField.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 16));
@@ -154,7 +151,7 @@ public class App extends Application {
                         ImageView previousUnselectedImageView = (ImageView) selectedCharacterPane.getChildren().get(0);
                         previousUnselectedImageView.setVisible(true);
                     }
-            
+
                     // Pilih karakter baru
                     selectedCharacterImageViewLocal.setVisible(true);
                     unselectedCharacterImageViewLocal.setVisible(false);
@@ -162,7 +159,7 @@ public class App extends Application {
                     selectedCharacter = character;
                 }
 
-                inputName= nameField.getText();
+                inputName = nameField.getText();
 
             });
 
@@ -178,10 +175,14 @@ public class App extends Application {
         }
 
         contentVBox.getChildren().add(characterContainer);
-        
 
         // Membuat tombol
         Button submitButton = new Button("Mulai");
+        submitButton.setPrefWidth(398);
+        submitButton.setPrefHeight(55);
+        submitButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
+        submitButton.setStyle(
+                "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: center;");
         submitButton.setOnAction(event -> {
             // Tindakan yang akan dilakukan saat tombol ditekan
             // Misalnya, menampilkan pesan dengan karakter yang dipilih dan nama pengguna
@@ -189,33 +190,13 @@ public class App extends Application {
                 System.out.println("Karakter yang dipilih: " + selectedCharacter);
                 System.out.println("Nama pengguna: " + inputName);
             }
+            // Membuat instance dari Home dan meneruskan data
+            Home homeStage = new Home(submitButton);
+            // Menampilkan stage Home
+            homeStage.show();
+            // Menutup stage sebelumnya (App)
+            primaryStage.close();
         });
-
-        submitButton.setPrefWidth(398);
-        submitButton.setPrefHeight(55);
-        submitButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
-        submitButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: center;");
-        submitButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                inputName = nameField.getText();
-        
-                if (selectedCharacter != null && !inputName.isEmpty()) {
-                    System.out.println("Karakter yang dipilih: " + selectedCharacter);
-                    System.out.println("Nama pengguna: " + inputName);
-        
-                    // Membuat instance dari Home dan meneruskan data
-                    Home homeStage = new Home(selectedCharacter);
-
-                    // Menutup stage sebelumnya (App)
-                    primaryStage.close();
-        
-                    // Menampilkan stage Home
-                    homeStage.show();
-                }
-            }
-        });
-
 
         VBox contenVBox = new VBox(hbox, welcomeContainer, contentVBox, characterLabel, characterContainer);
         contenVBox.setSpacing(20);
@@ -228,15 +209,13 @@ public class App extends Application {
         titleContainer.getChildren().addAll(contenVBox, contentbutton);
 
         vBox.getChildren().add(titleContainer);
-        
-        Scene scene = new Scene(vBox, 428, 926);
+
+        Scene scene = new Scene(vBox, 428, 800);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 }
-
-
 
 // pastikan ada 4 pilar oop nya
 // atur skenario nya
