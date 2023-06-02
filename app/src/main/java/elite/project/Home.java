@@ -1,10 +1,14 @@
 package elite.project;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -26,29 +30,41 @@ public class Home extends Stage {
 
         // Membuat konten untuk stage baru
         StackPane root = new StackPane();
+        root.setAlignment(Pos.CENTER);
 
         // membuat tombol
         Button addTask = new Button("Tambah Tugas");
         addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 22));
         addTask.setAlignment(Pos.CENTER);
+        addTask.setPrefWidth(200);
+        addTask.setPrefHeight(40);
+        addTask.setStyle(
+            "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
 
-        addTask.setOnAction(action -> {
+        addTask.setOnAction(event -> {
             AddTugas addTugas = new AddTugas();
             addTugas.show();
             primaryStage.close();
         });
 
+        
+        HBox box1 = new HBox();
+        box1.setPadding(new Insets(300, 20, 0, 20));
+        box1.setAlignment(Pos.CENTER);
+        box1.getChildren().addAll(addTask);
+
         // Membuat ImageView untuk menampilkan gambar
         Image backgroundImage = new Image(getClass().getResourceAsStream("/img/HomeEmpty.png"));
         ImageView backgroundImageView = new ImageView(backgroundImage);
-        root.getChildren().addAll(backgroundImageView, addTask);
+        root.getChildren().addAll(backgroundImageView, box1);
 
         // Menambahkan gambar karakter yang dipilih
         setCharacterImage();
 
-        VBox vLayout = new VBox(root);
+
+        HBox vLayout = new HBox(root);
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 800);
+        Scene scene = new Scene(vLayout, 428, 926);
         setResizable(false);
         setScene(scene);
     }
@@ -77,3 +93,4 @@ public class Home extends Stage {
         }
     }
 }
+

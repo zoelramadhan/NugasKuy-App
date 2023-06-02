@@ -210,7 +210,7 @@ public class App extends Application {
 
         vBox.getChildren().add(titleContainer);
 
-        Scene scene = new Scene(vBox, 428, 800);
+        Scene scene = new Scene(vBox, 428, 926);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

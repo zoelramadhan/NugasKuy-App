@@ -1,5 +1,6 @@
 package elite.project;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +32,7 @@ public class AddTugas extends Stage {
         Label judulTugas = new Label("Judul Tugas");
         judulTugas.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 16));
         judulTugas.setTextFill(Color.WHITE);
+        judulTugas.setPadding(new Insets(0, 0, 12, 0));
 
         // inputfield untuk judul tugas
         TextField juduField = new TextField();
@@ -67,6 +69,7 @@ public class AddTugas extends Stage {
         Label deadline = new Label("Deadline");
         deadline.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 16));
         deadline.setTextFill(Color.WHITE);
+        deadline.setLineSpacing(12);
 
         // inputfield untuk deadline tugas
         TextField deadlineField = new TextField();
@@ -94,7 +97,7 @@ public class AddTugas extends Stage {
         vLayout.setAlignment(Pos.TOP_CENTER);
         vLayout.setSpacing(15);
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 800);
+        Scene scene = new Scene(vLayout, 428, 999);
         setResizable(false);
         setScene(scene);
     }
