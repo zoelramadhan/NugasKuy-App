@@ -101,18 +101,22 @@ public class AddTugas extends Stage {
         inputContainer.setPadding(new Insets(0, 15, 0, 15));
 
         // Button Simpan
-        Button simpaButton = new Button("Simpan");
-        simpaButton.setPrefWidth(350);
-        simpaButton.setPrefHeight(55);
-        simpaButton.setLineSpacing(25);
-        simpaButton.setAlignment(Pos.CENTER);
-        // simpaButton.setStyle(new Insets(200, 0, 0, 0));
-        simpaButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
-        simpaButton.setStyle(
+        Button simpanButton = new Button("Simpan");
+        simpanButton.setPrefWidth(350);
+        simpanButton.setPrefHeight(55);
+        simpanButton.setLineSpacing(25);
+        simpanButton.setAlignment(Pos.CENTER);
+        // simpanButton.setStyle(new Insets(200, 0, 0, 0));
+        simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
+        simpanButton.setStyle(
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: TOP_CENTER;");
 
+        simpanButton.setOnAction(event -> {
+                TaskDone taskDone = new TaskDone();
+                taskDone.show();
+                });
         // Vbox
-        VBox layoutButton = new VBox(simpaButton);
+        VBox layoutButton = new VBox(simpanButton);
         vBox.getChildren().add(layoutButton);
         layoutButton.setAlignment(Pos.CENTER);
 
