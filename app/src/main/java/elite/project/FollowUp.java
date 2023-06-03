@@ -46,7 +46,7 @@ public class FollowUp extends Stage {
                 "-fx-background-color: #F05F5F; -fx-text-fill: white; -fx-background-radius: 16px;");
 
         batalButton.setOnAction(event -> {
-            AddTugas addTugas = new AddTugas();
+            AddTugas addTugas = new AddTugas(this);
             addTugas.show();
         });
 

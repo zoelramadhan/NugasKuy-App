@@ -26,6 +26,7 @@ public class App extends Application {
     private String inputName;
     private StackPane selectedCharacterPane;
     private Stage primaryStage;
+    public String pathImage;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -159,7 +160,8 @@ public class App extends Application {
                     selectedCharacter = character;
                 }
 
-                inputName = nameField.getText();
+                this.inputName = nameField.getText();
+                this.pathImage = imagePaths[1];
 
             });
 
@@ -186,16 +188,17 @@ public class App extends Application {
         submitButton.setOnAction(event -> {
             // Tindakan yang akan dilakukan saat tombol ditekan
             // Misalnya, menampilkan pesan dengan karakter yang dipilih dan nama pengguna
-            if (selectedCharacter != null && !inputName.isEmpty()) {
-                System.out.println("Karakter yang dipilih: " + selectedCharacter);
+            if (inputName != null) {
+            System.out.println("Karakter yang dipilih: " + selectedCharacter);
                 System.out.println("Nama pengguna: " + inputName);
             }
             // Membuat instance dari Home dan meneruskan data
-            Home homeStage = new Home(submitButton);
+            // Home homeStage = new Home(submitButton, inputName, pathImage);
             // Menampilkan stage Home
-            homeStage.show();
+            Home home = new Home(primaryStage);
+            home.show(submitButton, inputName, pathImage);
             // Menutup stage sebelumnya (App)
-            primaryStage.close();
+            // primaryStage.close();
         });
 
         VBox contenVBox = new VBox(hbox, welcomeContainer, contentVBox, characterLabel, characterContainer);
@@ -216,7 +219,3 @@ public class App extends Application {
         stage.show();
     }
 }
-
-// pastikan ada 4 pilar oop nya
-// atur skenario nya
-// discene berapa dan berapa
