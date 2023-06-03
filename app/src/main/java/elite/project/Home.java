@@ -33,7 +33,7 @@ public class Home extends Stage {
         Button addTask = new Button("Tambah Tugas");
         addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 22));
         addTask.setAlignment(Pos.CENTER);
-        addTask.setPrefWidth(200);
+        addTask.setPrefWidth(300);
         addTask.setPrefHeight(40);
         addTask.setStyle(
             "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
@@ -61,7 +61,7 @@ public class Home extends Stage {
 
         HBox vLayout = new HBox(root);
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 926);
+        Scene scene = new Scene(vLayout, 428, 800);
         setResizable(false);
         setScene(scene);
     }

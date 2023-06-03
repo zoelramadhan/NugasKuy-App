@@ -87,7 +87,7 @@ public class App extends Application {
         nameField.setStyle(
                 "-fx-background-color: black; -fx-background-radius: 12px; -fx-text-fill: white; -fx-background-insets: 0 0 -12 0; -fx-alignment: center-left; -fx-font-family: 'Poppins'; -fx-font-size: 18px; -fx-font-weight: 600;");
         nameField.setAlignment(Pos.CENTER_LEFT);
-        nameField.setPadding(new Insets(12, 0, 0, 24));
+        nameField.setPadding(new Insets(12, 12, 0, 12));
         nameField.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 16));
 
         // layout vertikal yang membungukus label dan inputfield user name
@@ -102,7 +102,7 @@ public class App extends Application {
         // layout untuk membungkus vertikal ketiga container tadi
         VBox contentVBox = new VBox(hbox, welcomeContainer, nameLabel, nameField);
         contentVBox.setSpacing(8);
-        contentVBox.setPadding(new Insets(24, 0, 12, 0));
+        contentVBox.setPadding(new Insets(-8, 0, 0, 0));
 
         HBox characterContainer = new HBox(characterLabel);
         characterContainer.setSpacing(24);
@@ -204,13 +204,13 @@ public class App extends Application {
 
         VBox contentbutton = new VBox(submitButton);
         contentbutton.setSpacing(0);
-        contentbutton.setPadding(new Insets(60, 0, 0, 12));
+        contentbutton.setPadding(new Insets(60, 12, 0, 12));
 
         titleContainer.getChildren().addAll(contenVBox, contentbutton);
 
         vBox.getChildren().add(titleContainer);
 
-        Scene scene = new Scene(vBox, 428, 926);
+        Scene scene = new Scene(vBox, 428, 800);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

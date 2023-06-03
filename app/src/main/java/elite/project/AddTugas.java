@@ -102,11 +102,10 @@ public class AddTugas extends Stage {
 
         // Button Simpan
         Button simpanButton = new Button("Simpan");
-        simpanButton.setPrefWidth(350);
-        simpanButton.setPrefHeight(55);
+        simpanButton.setPrefWidth(300);
+        simpanButton.setPrefHeight(40);
         simpanButton.setLineSpacing(25);
         simpanButton.setAlignment(Pos.CENTER);
-        // simpanButton.setStyle(new Insets(200, 0, 0, 0));
         simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
         simpanButton.setStyle(
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: TOP_CENTER;");
@@ -115,6 +114,7 @@ public class AddTugas extends Stage {
                 TaskDone taskDone = new TaskDone();
                 taskDone.show();
                 });
+
         // Vbox
         VBox layoutButton = new VBox(simpanButton);
         vBox.getChildren().add(layoutButton);
@@ -123,12 +123,11 @@ public class AddTugas extends Stage {
 
         VBox vLayout = new VBox(vBox, inputContainer ,layoutButton);
         vLayout.setStyle("-fx-background-color: #222831");
-        vLayout.setAlignment(Pos.CENTER);
+        vLayout.setAlignment(Pos.TOP_CENTER);
         vLayout.setSpacing(100);
 
-
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 999);
+        Scene scene = new Scene(vLayout, 428, 800);
         setResizable(false);
         setScene(scene);
     }
