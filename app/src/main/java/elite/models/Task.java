@@ -1,5 +1,6 @@
 package elite.models;
 
+
 public class Task {
     private String judulTugas;
     private String tag;
@@ -54,8 +55,4 @@ public class Task {
     public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
-
-    
-
-
 }

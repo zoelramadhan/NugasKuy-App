@@ -19,13 +19,12 @@ import javafx.stage.Stage;
 public class AddTugas  {
         private Stage stage;
         private User user;
-    private ObservableList<Task> listTask;
-
+        private ObservableList<Task> listTask;
 
         public AddTugas(Stage stage, User user,  ObservableList<Task> listTask) {
                 this.stage = stage;
                 this.user = user;
-             this.listTask = listTask;
+                this.listTask = listTask;
             }
         
     public void show() {
@@ -110,12 +109,12 @@ public class AddTugas  {
 
         VBox inputContainer = new VBox(inputContainer1, inputContainer2, inputContainer3, inputContainer4);
         inputContainer.setSpacing(35);
-        inputContainer.setAlignment(Pos.CENTER);
+        inputContainer.setAlignment(Pos.TOP_CENTER);
         inputContainer.setPadding(new Insets(0, 15, 0, 15));
 
         // Button Simpan
         Button simpanButton = new Button("Simpan");
-        simpanButton.setPrefWidth(396);
+        simpanButton.setPrefWidth(398);
         simpanButton.setPrefHeight(55);
         simpanButton.setLineSpacing(25);
         simpanButton.setAlignment(Pos.CENTER);
@@ -142,10 +141,10 @@ public class AddTugas  {
             VBox vLayout = new VBox(vBoxStatusBar, inputContainer, layoutButton);
             vLayout.setStyle("-fx-background-color: #222831");
             vLayout.setAlignment(Pos.TOP_CENTER);
-            vLayout.setSpacing(100);
+            vLayout.setSpacing(50);
     
             // Menampilkan konten di dalam stage
-            Scene scene = new Scene(vLayout, 428, 800);
+            Scene scene = new Scene(vLayout, 428, 926);
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
