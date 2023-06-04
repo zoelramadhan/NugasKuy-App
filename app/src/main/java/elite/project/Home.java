@@ -56,7 +56,7 @@ public class Home {
         addTask.setPrefWidth(300);
         addTask.setPrefHeight(40);
         addTask.setStyle(
-            "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         addTask.setOnAction(event -> {
             AddTugas addTugas = new AddTugas(stage, user, listTask);
@@ -92,8 +92,9 @@ public class Home {
         HBox milestone = new HBox();
         milestone.getChildren().addAll(levelText, expText);
         milestone.setPadding(new Insets(0, -200, 776, 0));
+        milestone.setPadding(new Insets(0, -200, 776, 0));
         milestone.setAlignment(Pos.CENTER);
-        
+
         VBox box1 = new VBox();
         box1.setAlignment(Pos.CENTER);
         box1.getChildren().addAll(milestone);
@@ -130,12 +131,11 @@ public class Home {
 
         HBox NameProfile = new HBox();
         NameProfile.getChildren().addAll(Usrname);
-    
+
         HBox ImageProfile = new HBox();
         ImageProfile.getChildren().addAll(imgIconView);
         imgIconView.setFitHeight(35); // Ubah tinggi gambar sesuai kebutuhan
         imgIconView.setFitWidth(35);
-
 
         HBox Profile = new HBox();
         Profile.getChildren().addAll(imgIconView, NameProfile);

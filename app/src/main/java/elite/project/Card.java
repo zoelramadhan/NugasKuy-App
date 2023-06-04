@@ -25,7 +25,8 @@ public class Card {
 
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(20));
-        root.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
+        root.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
 
         // Kotak centang status
         Rectangle checkBox = new Rectangle(24, 24);
@@ -60,15 +61,14 @@ public class Card {
         hBoxcard1.setAlignment(Pos.CENTER);
         hBoxcard1.setSpacing(240);
 
-
         // membuat tombol
         Button addTask = new Button("Tambah Tugas");
         addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 22));
         addTask.setAlignment(Pos.CENTER);
-        addTask.setPrefWidth(300);
-        addTask.setPrefHeight(40);
+        addTask.setPrefWidth(396);
+        addTask.setPrefHeight(55);
         addTask.setStyle(
-                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         VBox vLayout = new VBox();
         vLayout.setStyle("-fx-background-color: black; -fx-padding: 10; -fx-background-radius: 12px;");
@@ -85,7 +85,7 @@ public class Card {
         root.setCenter(vLayout);
         root.setBottom(button1);
 
-        Scene scene = new Scene(root, 428, 928);
+        Scene scene = new Scene(root, 428, 926);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

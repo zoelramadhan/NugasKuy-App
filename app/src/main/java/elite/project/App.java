@@ -90,6 +90,7 @@ public class App extends Application {
                 "-fx-background-color: black; -fx-background-radius: 12px; -fx-text-fill: white; -fx-background-insets: 0 0 -12 0; -fx-alignment: center-left; -fx-font-family: 'Poppins'; -fx-font-size: 18px; -fx-font-weight: 600;");
         nameField.setAlignment(Pos.CENTER_LEFT);
         nameField.setPadding(new Insets(12, 0, 0, 24));
+        nameField.setPadding(new Insets(12, 0, 0, 24));
         nameField.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 16));
 
         // layout vertikal yang membungukus label dan inputfield user name
@@ -104,6 +105,7 @@ public class App extends Application {
         // layout untuk membungkus vertikal ketiga container tadi
         VBox contentVBox = new VBox(hbox, welcomeContainer, nameLabel, nameField);
         contentVBox.setSpacing(8);
+        contentVBox.setPadding(new Insets(24, 0, 12, 0));
         contentVBox.setPadding(new Insets(24, 0, 12, 0));
 
         HBox characterContainer = new HBox(characterLabel);
@@ -181,16 +183,18 @@ public class App extends Application {
 
         // Membuat tombol
         Button submitButton = new Button("Masuk");
+        // Button submitButton = new Button("Masuk");
         submitButton.setPrefWidth(398);
         submitButton.setPrefHeight(55);
         submitButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
         submitButton.setStyle(
                 "-fx-background-color: #22CC8F; -fx-text-fill: white; -fx-background-radius: 26px; -fx-alignment: center;");
+                // "-fx-background-color: #22CC8F; -fx-text-fill: white; -fx-background-radius: 26px; -fx-alignment: center;");
         submitButton.setOnAction(event -> {
             // Tindakan yang akan dilakukan saat tombol ditekan
             // Misalnya, menampilkan pesan dengan karakter yang dipilih dan nama pengguna
             if (inputName != null) {
-            System.out.println("Karakter yang dipilih: " + selectedCharacter);
+                System.out.println("Karakter yang dipilih: " + selectedCharacter);
                 System.out.println("Nama pengguna: " + inputName);
             }
             // Menampilkan stage Home
@@ -212,6 +216,7 @@ public class App extends Application {
         vBox.getChildren().add(titleContainer);
 
         Scene scene = new Scene(vBox, 428, 926);
+        // Scene scene = new Scene(vBox, 428, 926);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

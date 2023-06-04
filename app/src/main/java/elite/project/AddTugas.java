@@ -93,35 +93,35 @@ public class AddTugas  {
         deadlineField.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 16));
 
         VBox inputContainer1 = new VBox(judulTugas, juduField);
-        inputContainer1.setSpacing(10);
+        inputContainer1.setSpacing(7);
         inputContainer1.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer2 = new VBox(tag, tagField);
-        inputContainer2.setSpacing(10);
+        inputContainer2.setSpacing(7);
         inputContainer2.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer3 = new VBox(label, labelField);
-        inputContainer3.setSpacing(10);
+        inputContainer3.setSpacing(7);
         inputContainer3.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer4 = new VBox(deadline, deadlineField);
-        inputContainer4.setSpacing(10);
+        inputContainer4.setSpacing(7);
         inputContainer4.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer = new VBox(inputContainer1, inputContainer2, inputContainer3, inputContainer4);
-        inputContainer.setSpacing(50);
+        inputContainer.setSpacing(35);
         inputContainer.setAlignment(Pos.CENTER);
         inputContainer.setPadding(new Insets(0, 15, 0, 15));
 
         // Button Simpan
         Button simpanButton = new Button("Simpan");
-        simpanButton.setPrefWidth(300);
-        simpanButton.setPrefHeight(40);
+        simpanButton.setPrefWidth(396);
+        simpanButton.setPrefHeight(55);
         simpanButton.setLineSpacing(25);
         simpanButton.setAlignment(Pos.CENTER);
         simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
         simpanButton.setStyle(
-                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: TOP_CENTER;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px; -fx-alignment: CENTER;");
 
         simpanButton.setOnAction(event -> {
                 String judul = juduField.getText();
