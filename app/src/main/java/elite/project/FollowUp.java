@@ -44,10 +44,10 @@ public class FollowUp  {
 
         Button selesaiButton = new Button("Selesai");
         selesaiButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
-        selesaiButton.setPrefWidth(300);
-        selesaiButton.setPrefHeight(40);
+        selesaiButton.setPrefWidth(355);
+        selesaiButton.setPrefHeight(50);
         selesaiButton.setStyle(
-                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         selesaiButton.setOnAction(event -> {
             int i = listTask.indexOf(task);
@@ -61,10 +61,10 @@ public class FollowUp  {
 
         Button batalButton = new Button("Batal");
         batalButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
-        batalButton.setPrefWidth(300);
-        batalButton.setPrefHeight(40);
+        batalButton.setPrefWidth(355);
+        batalButton.setPrefHeight(50);
         batalButton.setStyle(
-                "-fx-background-color: #F05F5F; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #F05F5F; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         batalButton.setOnAction(event -> {
             Home home = new Home(stage, user, listTask);
@@ -74,7 +74,7 @@ public class FollowUp  {
         VBox button = new VBox(selesaiButton, batalButton);
         button.setSpacing(10);
         button.setAlignment(Pos.BOTTOM_CENTER);
-        button.setPadding(new Insets(0, 15, 90, 15));
+        button.setPadding(new Insets(0, 15, 55, 15));
         root.getChildren().addAll(backgroundImageView, button);
 
         VBox vLayout = new VBox(root);

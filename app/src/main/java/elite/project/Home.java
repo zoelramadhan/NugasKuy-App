@@ -50,10 +50,10 @@ public class Home extends AbstractHome {
     
             // membuat tombol
             Button addTask = new Button("Tambah Tugas");
-            addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 22));
+            addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
             addTask.setAlignment(Pos.CENTER);
-            addTask.setPrefWidth(235);
-            addTask.setPrefHeight(50);
+            addTask.setPrefWidth(400);
+            addTask.setPrefHeight(32);
             addTask.setStyle(
                     "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
     
@@ -63,7 +63,7 @@ public class Home extends AbstractHome {
             });
     
             VBox vLayout = new VBox();
-            vLayout.setPadding(new Insets(130, 12, 20, 12));
+            vLayout.setPadding(new Insets(140, 10, 20, 16));
             vLayout.setSpacing(16);
             vLayout.setMinSize(396, 71);
     
@@ -71,7 +71,7 @@ public class Home extends AbstractHome {
             VBox.setVgrow(space, Priority.ALWAYS);
     
             HBox LayoutButton = new HBox();
-            LayoutButton.setPadding(new Insets(0, 0, 270, 0));
+            LayoutButton.setPadding(new Insets(0, 0, 27, 0));
             LayoutButton.setAlignment(Pos.CENTER);
             LayoutButton.getChildren().add(addTask);
         
@@ -182,9 +182,10 @@ public class Home extends AbstractHome {
             hboxCard.setSpacing(20);
             hboxCard.setAlignment(Pos.CENTER);
     
-            HBox hBoxcard1 = new HBox(hboxCard, vbox2);
+            Region space = new Region();
+            HBox.setHgrow(space, Priority.ALWAYS);
+            HBox hBoxcard1 = new HBox(hboxCard,space, vbox2);
             hBoxcard1.setAlignment(Pos.CENTER);
-            hBoxcard1.setSpacing(240);
     
             Region sizRegion = new  Region();
             sizRegion.setMinSize(1, 12);
