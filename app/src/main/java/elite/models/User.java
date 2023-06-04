@@ -6,15 +6,15 @@ public class User {
     private int exp;
     private int level;
 
-    public void addExp(){
-        exp+=10;
-        if (exp>=getExpRequired()) {
-            level+=1;
+    public void addExp() {
+        exp += 10;
+        if (exp >= getExpRequired()) {
+            level += 1;
         }
     }
 
     public int getExpRequired() {
-        return 30+(level-1)*10;
+        return 30 + (level - 1) * 30;
     }
 
     public String getNama() {
@@ -56,5 +56,3 @@ public class User {
         this.fotoProfil = fotoProfil;
     }
 }
-
-

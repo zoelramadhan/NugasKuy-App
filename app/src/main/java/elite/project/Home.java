@@ -63,7 +63,7 @@ public class Home extends AbstractHome {
             });
     
             VBox vLayout = new VBox();
-            vLayout.setPadding(new Insets(140, 10, 20, 16));
+            vLayout.setPadding(new Insets(140, 16, 20, 16));
             vLayout.setSpacing(16);
             vLayout.setMinSize(396, 71);
     
