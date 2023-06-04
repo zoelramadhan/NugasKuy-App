@@ -1,6 +1,7 @@
 package elite.project;
 
 import elite.models.Task;
+import elite.models.User;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,17 +17,15 @@ import javafx.stage.Stage;
 public class FollowUp  {
 
     private Stage stage;
-    private String userName;
-    private String pathImage;
+    private User user;
     private ObservableList<Task> listTask;
     private Task task;
 
-    public FollowUp(Stage stage, String userName, String pathImage, ObservableList<Task> listTask, Task task) {
+    public FollowUp(Stage stage, User user, ObservableList<Task> listTask, Task task) {
         this.stage = stage;
-        this.userName = userName;
+        this.user = user;
         this.listTask = listTask;
         this.task = task;
-        this.pathImage = pathImage;
     }
 
 
@@ -54,7 +53,8 @@ public class FollowUp  {
             int i = listTask.indexOf(task);
             // listTask.remove(task);
             listTask.get(i).finishTask();
-            Home home = new Home(stage, userName, pathImage, listTask);
+            user.addExp();
+            Home home = new Home(stage, user, listTask);
             home.show();
 
         });
@@ -67,7 +67,7 @@ public class FollowUp  {
                 "-fx-background-color: #F05F5F; -fx-text-fill: white; -fx-background-radius: 16px;");
 
         batalButton.setOnAction(event -> {
-            Home home = new Home(stage, userName, pathImage, listTask);
+            Home home = new Home(stage, user, listTask);
             home.show();
         });
 

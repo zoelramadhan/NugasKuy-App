@@ -2,6 +2,7 @@ package elite.project;
 
 import java.util.HashMap;
 
+import elite.models.User;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -193,7 +194,7 @@ public class App extends Application {
                 System.out.println("Nama pengguna: " + inputName);
             }
             // Menampilkan stage Home
-            Home home = new Home(primaryStage, inputName, pathImage);
+            Home home = new Home(primaryStage, new User(inputName, pathImage));
             home.show();
             
         });

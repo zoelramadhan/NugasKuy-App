@@ -1,6 +1,7 @@
 package elite.project;
 
 import elite.models.Task;
+import elite.models.User;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,17 +18,14 @@ import javafx.stage.Stage;
 
 public class AddTugas  {
         private Stage stage;
-        private String userName;
-        private String pathImage;
+        private User user;
     private ObservableList<Task> listTask;
 
 
-        public AddTugas(Stage stage, String userName, String pathImage, ObservableList<Task> listTask) {
+        public AddTugas(Stage stage, User user,  ObservableList<Task> listTask) {
                 this.stage = stage;
-                this.userName = userName;
-        this.listTask = listTask;
-
-                this.pathImage = pathImage;
+                this.user = user;
+             this.listTask = listTask;
             }
         
     public void show() {
@@ -133,7 +131,7 @@ public class AddTugas  {
 
                 Task task = new Task(judul, tagString, laString, deString);
                 listTask.add(task);
-                Home home = new Home(stage, userName, pathImage, listTask);
+                Home home = new Home(stage, user, listTask);
                 home.show();
             });
             

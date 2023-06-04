@@ -1,6 +1,7 @@
 package elite.project;
 
 import elite.models.Task;
+import elite.models.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -23,25 +24,18 @@ import javafx.stage.Stage;
 public class Home {
     private Stage stage;
     private ObservableList<Task> listTask;
-    private String userName;
-    private String pathImage;
+    private User user;
 
-    private int exp = 0;
-    private int level = 1;
-    private int expRequired = 30;
-
-    public Home(Stage stage, String userName, String pathImage) {
+    public Home(Stage stage, User user) {
         this.stage = stage;
         this.listTask = FXCollections.observableArrayList();
-        this.userName = userName;
-        this.pathImage = pathImage;
+        this.user = user;
     }
 
-    public Home(Stage stage, String userName, String pathImage,  ObservableList<Task> listTask) {
+    public Home(Stage stage, User user,  ObservableList<Task> listTask) {
         this.stage = stage;
         this.listTask = listTask;
-        this.userName = userName;
-        this.pathImage = pathImage;
+        this.user = user;
     }
 
     public void show() {
@@ -65,13 +59,14 @@ public class Home {
             "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
 
         addTask.setOnAction(event -> {
-            AddTugas addTugas = new AddTugas(stage, userName, pathImage, listTask);
+            AddTugas addTugas = new AddTugas(stage, user, listTask);
             addTugas.show();
             // primaryStage.close();
         });
 
         VBox vLayout = new VBox();
         vLayout.setPadding(new Insets(130, 12, 20, 12));
+        vLayout.setSpacing(16);
         // vLayout.setStyle("-fx-background-color: black; -fx-padding: 10; -fx-background-radius: 12px;");
         vLayout.setMinSize(396, 71);
         // vLayout.setMaxSize(396, 71);
@@ -86,11 +81,11 @@ public class Home {
         LayoutButton.getChildren().add(addTask);
     
         // Menambahkan level dan exp
-        Text levelText = new Text("Level: " + level + "     ");
+        Text levelText = new Text("Level: " + user.getLevel() + "     ");
         levelText.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
         levelText.setFill(Color.WHITE);
                     
-        Text expText = new Text("Exp: " + exp + "/" + expRequired);
+        Text expText = new Text("Exp: " + user.getExp() + "/" + user.getExpRequired());
         expText.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
         expText.setFill(Color.WHITE);
 
@@ -125,10 +120,10 @@ public class Home {
         showbox1.getChildren().addAll(box1);
         
 
-        Image imgIcon = new Image(getClass().getResourceAsStream(pathImage));
+        Image imgIcon = new Image(getClass().getResourceAsStream(user.getFotoProfil()));
         ImageView imgIconView = new ImageView(imgIcon);
 
-        Label Usrname = new Label(userName);
+        Label Usrname = new Label(user.getNama());
         Usrname.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
         Usrname.setAlignment(Pos.CENTER_LEFT);
         Usrname.setStyle("-fx-text-fill: white");
@@ -202,7 +197,8 @@ public class Home {
         hBoxcard1.setSpacing(240);
 
         Region sizRegion = new  Region();
-        sizRegion.setPrefSize(1, 12);
+        sizRegion.setMinSize(1, 12);
+
 
         VBox taskBox = new VBox();
         taskBox.setStyle("-fx-background-color: black; -fx-padding: 10; -fx-background-radius: 12px;");
@@ -213,12 +209,9 @@ public class Home {
 
         taskBox.setOnMouseClicked(v->{
             System.out.println("apa");
-            FollowUp followUp = new FollowUp(stage, userName, pathImage, listTask, task);
+            FollowUp followUp = new FollowUp(stage, user, listTask, task);
             followUp.show();
         });
-
-
-
     
 
         return taskBox;

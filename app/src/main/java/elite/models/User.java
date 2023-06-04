@@ -1,58 +1,60 @@
 package elite.models;
 
 public class User {
-    private String judulTugas;
-    private String tag;
-    private String label;
-    private String deadline;
-    private boolean isFinish;
+    private String nama;
+    private String fotoProfil;
+    private int exp;
+    private int level;
 
-    public boolean isFinish() {
-        return isFinish;
+    public void addExp(){
+        exp+=10;
+        if (exp>=getExpRequired()) {
+            level+=1;
+        }
     }
 
-    public User(String judulTugas, String tag, String label, String deadline) {
-        this.judulTugas = judulTugas;
-        this.tag = tag;
-        this.label = label;
-        this.deadline = deadline;
-        this.isFinish = false;
+    public int getExpRequired() {
+        return 30+(level-1)*10;
     }
 
-    public void finishTask(){
-        isFinish = true;
+    public String getNama() {
+        return nama;
     }
 
-    public String getJudulTugas() {
-        return judulTugas;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public void setJudulTugas(String judulTugas) {
-        this.judulTugas = judulTugas;
+    public String getFotoProfil() {
+        return fotoProfil;
     }
 
-    public String getTag() {
-        return tag;
+    public void setFotoProfil(String fotoProfil) {
+        this.fotoProfil = fotoProfil;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public int getExp() {
+        return exp;
     }
 
-    public String getLabel() {
-        return label;
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public int getLevel() {
+        return level;
     }
 
-    public String getDeadline() {
-        return deadline;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
+    public User(String nama, String fotoProfil) {
+        this.nama = nama;
+        this.level = 1;
+        this.exp = 0;
+        this.fotoProfil = fotoProfil;
     }
-
 }
+
+
