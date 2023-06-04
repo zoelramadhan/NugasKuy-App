@@ -68,8 +68,8 @@ public class Card {
         Button addTask = new Button("Tambah Tugas");
         addTask.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 22));
         addTask.setAlignment(Pos.CENTER);
-        addTask.setPrefWidth(300);
-        addTask.setPrefHeight(40);
+        addTask.setPrefWidth(396);
+        addTask.setPrefHeight(58);
         addTask.setStyle(
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
 
@@ -95,7 +95,7 @@ public class Card {
         root.setCenter(vLayout);
         root.setBottom(button1);
 
-        Scene scene = new Scene(root, 428, 928);
+        Scene scene = new Scene(root, 428, 926);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

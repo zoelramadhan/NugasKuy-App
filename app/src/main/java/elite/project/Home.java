@@ -52,6 +52,11 @@ public class Home {
             addTugas.show();
             // primaryStage.close();
         });
+
+        HBox LayoutButton = new HBox();
+        LayoutButton.setPadding(new Insets(310, 0, 0, 0));
+        LayoutButton.setAlignment(Pos.CENTER);
+        LayoutButton.getChildren().add(addTask);
     
         // Menambahkan level dan exp
         Text levelText = new Text("Level: " + level + "     ");
@@ -64,7 +69,7 @@ public class Home {
 
         HBox milestone = new HBox();
         milestone.getChildren().addAll(levelText, expText);
-        milestone.setPadding(new Insets(0, 0, 770, 0));
+        milestone.setPadding(new Insets(0, -200, 776, 0));
         milestone.setAlignment(Pos.CENTER);
         
         VBox box1 = new VBox();
@@ -79,6 +84,7 @@ public class Home {
         VBox showbox1 = new VBox();
         showbox1.setAlignment(Pos.CENTER);
         showbox1.getChildren().addAll(box1);
+        
 
         Image imgIcon = new Image(getClass().getResourceAsStream(pathImage));
         ImageView imgIconView = new ImageView(imgIcon);
@@ -103,15 +109,14 @@ public class Home {
         Profile.setSpacing(4);
 
 
-        root.getChildren().addAll(backgroundImageView, showbox1, Profile, addTask);
+        root.getChildren().addAll(backgroundImageView, showbox1, Profile, LayoutButton);
         
         HBox vLayout = new HBox(root);
         
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 800);
+        Scene scene = new Scene(vLayout, 428, 926);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 }
-

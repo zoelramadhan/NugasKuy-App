@@ -16,11 +16,11 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class AddTugas  {
-        private Stage stage;
+    private Stage stage;
 
-        public AddTugas(Stage stage) {
-                this.stage = stage;
-            }
+    public AddTugas(Stage stage) {
+        this.stage = stage;
+    }
         
     public void show() {
         stage.setTitle("NugasKuy");
@@ -109,25 +109,24 @@ public class AddTugas  {
 
         // Button Simpan
         Button simpanButton = new Button("Simpan");
-        simpanButton.setPrefWidth(300);
-        simpanButton.setPrefHeight(40);
+        simpanButton.setPrefWidth(396);
+        simpanButton.setPrefHeight(58);
         simpanButton.setLineSpacing(25);
         simpanButton.setAlignment(Pos.CENTER);
-        simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
+        simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 25));
         simpanButton.setStyle(
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: TOP_CENTER;");
 
         simpanButton.setOnAction(event -> {
-                String judul = juduField.getText();
-                String tagString = tagField.getText();
-                String laString = labelField.getText();
-                String deString = deadlineField.getText();
+            String judul = juduField.getText();
+            String tagString = tagField.getText();
+            String laString = labelField.getText();
+            String deString = deadlineField.getText();
     
-                // Membuat objek Card dengan data inputan
-                Card card = new Card(stage);
-                card.show(judul, tagString, laString, deString);
-
-            });
+            // Membuat objek Card dengan data inputan
+            Card card = new Card(stage);
+            card.show(judul, tagString, laString, deString);
+        });
             
         
             VBox layoutButton = new VBox(simpanButton);
@@ -136,10 +135,10 @@ public class AddTugas  {
             VBox vLayout = new VBox(vBoxStatusBar, inputContainer, layoutButton);
             vLayout.setStyle("-fx-background-color: #222831");
             vLayout.setAlignment(Pos.TOP_CENTER);
-            vLayout.setSpacing(100);
+            vLayout.setSpacing(50);
     
             // Menampilkan konten di dalam stage
-            Scene scene = new Scene(vLayout, 428, 800);
+            Scene scene = new Scene(vLayout, 428, 926);
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();

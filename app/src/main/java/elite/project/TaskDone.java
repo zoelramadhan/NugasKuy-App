@@ -49,7 +49,7 @@ public class TaskDone extends Stage {
 
         VBox vLayout = new VBox(root);
         // Menampilkan konten di dalam stage
-        Scene scene = new Scene(vLayout, 428, 800);
+        Scene scene = new Scene(vLayout, 428, 926);
         setResizable(false);
         setScene(scene);
     }
