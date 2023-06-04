@@ -30,7 +30,7 @@ public class TaskDone extends Stage {
         addTask.setPrefWidth(300);
         addTask.setPrefHeight(40);
         addTask.setStyle(
-                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         HBox box1 = new HBox();
         box1.setPadding(new Insets(550, 20, 30, 20));

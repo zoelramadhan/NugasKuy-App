@@ -15,13 +15,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class AddTugas  {
+public class AddTugas {
     private Stage stage;
 
     public AddTugas(Stage stage) {
         this.stage = stage;
     }
-        
+
     public void show() {
         stage.setTitle("NugasKuy");
 
@@ -87,61 +87,61 @@ public class AddTugas  {
         deadlineField.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 16));
 
         VBox inputContainer1 = new VBox(judulTugas, juduField);
-        inputContainer1.setSpacing(10);
+        inputContainer1.setSpacing(7);
         inputContainer1.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer2 = new VBox(tag, tagField);
-        inputContainer2.setSpacing(10);
+        inputContainer2.setSpacing(7);
         inputContainer2.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer3 = new VBox(label, labelField);
-        inputContainer3.setSpacing(10);
+        inputContainer3.setSpacing(7);
         inputContainer3.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer4 = new VBox(deadline, deadlineField);
-        inputContainer4.setSpacing(10);
+        inputContainer4.setSpacing(7);
         inputContainer4.setAlignment(Pos.CENTER_LEFT);
 
         VBox inputContainer = new VBox(inputContainer1, inputContainer2, inputContainer3, inputContainer4);
-        inputContainer.setSpacing(50);
+        inputContainer.setSpacing(35);
         inputContainer.setAlignment(Pos.CENTER);
         inputContainer.setPadding(new Insets(0, 15, 0, 15));
 
         // Button Simpan
         Button simpanButton = new Button("Simpan");
         simpanButton.setPrefWidth(396);
-        simpanButton.setPrefHeight(58);
+        simpanButton.setPrefHeight(55);
         simpanButton.setLineSpacing(25);
         simpanButton.setAlignment(Pos.CENTER);
-        simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 25));
+        simpanButton.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 24));
         simpanButton.setStyle(
-                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px; -fx-alignment: TOP_CENTER;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px; -fx-alignment: CENTER;");
 
         simpanButton.setOnAction(event -> {
             String judul = juduField.getText();
             String tagString = tagField.getText();
             String laString = labelField.getText();
             String deString = deadlineField.getText();
-    
+
             // Membuat objek Card dengan data inputan
             Card card = new Card(stage);
             card.show(judul, tagString, laString, deString);
+
         });
-            
-        
-            VBox layoutButton = new VBox(simpanButton);
-            layoutButton.setAlignment(Pos.CENTER);
-    
-            VBox vLayout = new VBox(vBoxStatusBar, inputContainer, layoutButton);
-            vLayout.setStyle("-fx-background-color: #222831");
-            vLayout.setAlignment(Pos.TOP_CENTER);
-            vLayout.setSpacing(50);
-    
-            // Menampilkan konten di dalam stage
-            Scene scene = new Scene(vLayout, 428, 926);
-            stage.setResizable(false);
-            stage.setScene(scene);
-            stage.show();
+
+        VBox layoutButton = new VBox(simpanButton);
+        layoutButton.setAlignment(Pos.CENTER);
+
+        VBox vLayout = new VBox(vBoxStatusBar, inputContainer, layoutButton);
+        vLayout.setStyle("-fx-background-color: #222831");
+        vLayout.setAlignment(Pos.TOP_CENTER);
+        vLayout.setSpacing(50);
+
+        // Menampilkan konten di dalam stage
+        Scene scene = new Scene(vLayout, 428, 926);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private VBox createTaskBox(Task task) {

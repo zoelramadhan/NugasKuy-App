@@ -44,7 +44,7 @@ public class Home {
         addTask.setPrefWidth(300);
         addTask.setPrefHeight(40);
         addTask.setStyle(
-            "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
+                "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 26px;");
 
         addTask.setOnAction(event -> {
             System.out.print("JADIKAN MI");
@@ -57,13 +57,13 @@ public class Home {
         LayoutButton.setPadding(new Insets(310, 0, 0, 0));
         LayoutButton.setAlignment(Pos.CENTER);
         LayoutButton.getChildren().add(addTask);
-    
+
         // Menambahkan level dan exp
-        Text levelText = new Text("Level: " + level + "     ");
+        Text levelText = new Text("Level : " + level + "     ");
         levelText.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
         levelText.setFill(Color.WHITE);
-                    
-        Text expText = new Text("Exp: " + exp + "/" + expRequired);
+
+        Text expText = new Text("Exp : " + exp + "/" + expRequired);
         expText.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 18));
         expText.setFill(Color.WHITE);
 
@@ -71,20 +71,18 @@ public class Home {
         milestone.getChildren().addAll(levelText, expText);
         milestone.setPadding(new Insets(0, -200, 776, 0));
         milestone.setAlignment(Pos.CENTER);
-        
+
         VBox box1 = new VBox();
         box1.setAlignment(Pos.CENTER);
         box1.getChildren().addAll(milestone);
 
-        
         // Membuat ImageView untuk menampilkan gambar
         Image backgroundImage = new Image(getClass().getResourceAsStream("/img/HomeEmpty.png"));
         ImageView backgroundImageView = new ImageView(backgroundImage);
-        
+
         VBox showbox1 = new VBox();
         showbox1.setAlignment(Pos.CENTER);
         showbox1.getChildren().addAll(box1);
-        
 
         Image imgIcon = new Image(getClass().getResourceAsStream(pathImage));
         ImageView imgIconView = new ImageView(imgIcon);
@@ -96,23 +94,21 @@ public class Home {
 
         HBox NameProfile = new HBox();
         NameProfile.getChildren().addAll(Usrname);
-    
+
         HBox ImageProfile = new HBox();
         ImageProfile.getChildren().addAll(imgIconView);
         imgIconView.setFitHeight(35); // Ubah tinggi gambar sesuai kebutuhan
         imgIconView.setFitWidth(35);
-
 
         HBox Profile = new HBox();
         Profile.getChildren().addAll(imgIconView, NameProfile);
         Profile.setPadding(new Insets(56, 0, 0, 22.5));
         Profile.setSpacing(4);
 
-
         root.getChildren().addAll(backgroundImageView, showbox1, Profile, LayoutButton);
-        
+
         HBox vLayout = new HBox(root);
-        
+
         // Menampilkan konten di dalam stage
         Scene scene = new Scene(vLayout, 428, 926);
         stage.setResizable(false);
