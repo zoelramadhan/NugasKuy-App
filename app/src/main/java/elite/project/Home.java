@@ -171,6 +171,7 @@ public class Home extends AbstractHome {
             labelLabel.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 14));
             tagLabel.setTextFill(Color.WHITE);
             labelLabel.setTextFill(Color.WHITE);
+            deadlineLabel.setTextFill(Color.RED);
     
             VBox vbox1 = new VBox(judulLabel, labelLabel);
             vbox1.setSpacing(6);
