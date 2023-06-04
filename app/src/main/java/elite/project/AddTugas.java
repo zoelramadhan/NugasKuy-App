@@ -1,5 +1,7 @@
 package elite.project;
 
+import elite.models.Task;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,18 +10,24 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class AddTugas  {
         private Stage stage;
+        private String userName;
+        private String pathImage;
+    private ObservableList<Task> listTask;
 
-        public AddTugas(Stage stage) {
+
+        public AddTugas(Stage stage, String userName, String pathImage, ObservableList<Task> listTask) {
                 this.stage = stage;
+                this.userName = userName;
+        this.listTask = listTask;
+
+                this.pathImage = pathImage;
             }
         
     public void show() {
@@ -40,10 +48,10 @@ public class AddTugas  {
         Label judulTugas = new Label("Judul Tugas");
         judulTugas.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 16));
         judulTugas.setTextFill(Color.WHITE);
-        judulTugas.setPadding(new Insets(0, 0, 12, 0));
 
         // inputfield untuk judul tugas
         TextField juduField = new TextField();
+        judulTugas.setAlignment(Pos.CENTER);
         juduField.setStyle(
                 "-fx-background-color: black; -fx-background-radius: 12px; -fx-text-fill: white; -fx-background-insets: 0 0 -12 0; -fx-alignment: center-left; -fx-font-family: 'Poppins'; -fx-font-size: 18px; -fx-font-weight: 600;");
         juduField.setAlignment(Pos.CENTER);
@@ -122,11 +130,11 @@ public class AddTugas  {
                 String tagString = tagField.getText();
                 String laString = labelField.getText();
                 String deString = deadlineField.getText();
-    
-                // Membuat objek Card dengan data inputan
-                Card card = new Card(stage);
-                card.show(judul, tagString, laString, deString);
 
+                Task task = new Task(judul, tagString, laString, deString);
+                listTask.add(task);
+                Home home = new Home(stage, userName, pathImage, listTask);
+                home.show();
             });
             
         
@@ -144,79 +152,4 @@ public class AddTugas  {
             stage.setScene(scene);
             stage.show();
     }
-
-    private VBox createTaskBox(Task task) {
-        // Kotak centang status
-        Rectangle checkBox = new Rectangle(24, 24);
-        checkBox.setFill(Color.BLACK);
-        checkBox.setStroke(Color.GREEN);
-
-        // Label judul tugas
-        Label judulLabel = new Label(task.getJudul());
-        judulLabel.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Medium.ttf"), 16));
-        judulLabel.setTextFill(Color.WHITE);
-
-        // Label tag dan label tugas
-        Label tagLabel = new Label(task.getTag());
-        Label labelLabel = new Label(task.getLabel());
-        Label deadlineLabel = new Label(task.getDeadline());
-        tagLabel.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 14));
-        labelLabel.setFont(Font.loadFont(getClass().getResourceAsStream("/Poppins-Regular.ttf"), 14));
-        tagLabel.setTextFill(Color.WHITE);
-        labelLabel.setTextFill(Color.WHITE);
-
-        VBox vbox1 = new VBox(judulLabel, labelLabel);
-        vbox1.setSpacing(6);
-
-        VBox vbox2 = new VBox(tagLabel, deadlineLabel);
-        vbox2.setSpacing(6);
-
-        HBox hboxCard = new HBox(checkBox, vbox1);
-        hboxCard.setSpacing(20);
-        hboxCard.setAlignment(Pos.CENTER);
-
-        HBox hBoxcard1 = new HBox(hboxCard, vbox2);
-        hBoxcard1.setAlignment(Pos.CENTER);
-        hBoxcard1.setSpacing(240);
-
-        VBox taskBox = new VBox();
-        taskBox.setStyle("-fx-background-color: black; -fx-padding: 10; -fx-background-radius: 12px;");
-        taskBox.setMinSize(396, 71);
-        taskBox.setMaxSize(396, 71);
-        taskBox.setAlignment(Pos.CENTER);
-        taskBox.getChildren().addAll(hBoxcard1);
-
-        return taskBox;
-    }
-
-    private class Task {
-        private String judul;
-        private String tag;
-        private String label;
-        private String deadline;
-
-        public Task(String judul, String tag, String label, String deadline) {
-            this.judul = judul;
-            this.tag = tag;
-            this.label = label;
-            this.deadline = deadline;
-        }
-
-        public String getJudul() {
-            return judul;
-        }
-
-        public String getTag() {
-            return tag;
-        }
-
-        public String getLabel() {
-            return label;
-        }
-
-        public String getDeadline() {
-            return deadline;
-        }
-    }
-
 }

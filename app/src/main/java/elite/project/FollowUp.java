@@ -1,5 +1,7 @@
 package elite.project;
 
+import elite.models.Task;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,13 +13,28 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class FollowUp extends Stage {
+public class FollowUp  {
 
-    public FollowUp() {
-        setTitle("NugasKuy");
+    private Stage stage;
+    private String userName;
+    private String pathImage;
+    private ObservableList<Task> listTask;
+    private Task task;
+
+    public FollowUp(Stage stage, String userName, String pathImage, ObservableList<Task> listTask, Task task) {
+        this.stage = stage;
+        this.userName = userName;
+        this.listTask = listTask;
+        this.task = task;
+        this.pathImage = pathImage;
+    }
+
+
+    public void show() {
+        stage.setTitle("NugasKuy");
         // Mengubah icon aplikasi saat di run
         Image icon = new Image(getClass().getResourceAsStream("/img/NugasKuy.png"));
-        getIcons().add(icon);
+        stage.getIcons().add(icon);
 
         // Membuat konten untuk stage baru
         StackPane root = new StackPane();
@@ -34,8 +51,12 @@ public class FollowUp extends Stage {
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
 
         selesaiButton.setOnAction(event -> {
-            TaskDone taskDone = new TaskDone();
-            taskDone.show();
+            int i = listTask.indexOf(task);
+            // listTask.remove(task);
+            listTask.get(i).finishTask();
+            Home home = new Home(stage, userName, pathImage, listTask);
+            home.show();
+
         });
 
         Button batalButton = new Button("Batal");
@@ -46,8 +67,8 @@ public class FollowUp extends Stage {
                 "-fx-background-color: #F05F5F; -fx-text-fill: white; -fx-background-radius: 16px;");
 
         batalButton.setOnAction(event -> {
-            AddTugas addTugas = new AddTugas(this);
-            addTugas.show();
+            Home home = new Home(stage, userName, pathImage, listTask);
+            home.show();
         });
 
         VBox button = new VBox(selesaiButton, batalButton);
@@ -59,7 +80,7 @@ public class FollowUp extends Stage {
         VBox vLayout = new VBox(root);
         // Menampilkan konten di dalam stage
         Scene scene = new Scene(vLayout, 394, 318);
-        setResizable(false);
-        setScene(scene);
+        stage.setResizable(false);
+        stage.setScene(scene);
     }
 }

@@ -4,10 +4,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -24,7 +22,6 @@ public class Card {
     public void show(String judul, String tag, String label, String deadline) {
 
         Image background = new Image(getClass().getResourceAsStream("/img/HomeAddToDo.png"));
-        ImageView backgroundView = new ImageView(background);
 
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(20));
@@ -72,13 +69,6 @@ public class Card {
         addTask.setPrefHeight(40);
         addTask.setStyle(
                 "-fx-background-color: #6773E9; -fx-text-fill: white; -fx-background-radius: 16px;");
-
-        addTask.setOnAction(event -> {
-            System.out.print("JADIKAN MI");
-            AddTugas addTugas = new AddTugas(stage);
-            addTugas.show();
-            // primaryStage.close();
-        });
 
         VBox vLayout = new VBox();
         vLayout.setStyle("-fx-background-color: black; -fx-padding: 10; -fx-background-radius: 12px;");
